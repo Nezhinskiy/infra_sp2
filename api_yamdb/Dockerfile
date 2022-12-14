@@ -6,7 +6,13 @@ WORKDIR /app
 
 COPY requirements.txt /app
 
-RUN pip3 install -r /app/requirements.txt --no-cache-dir
+RUN python -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install --upgrade pip
+
+RUN pip install --root-user-action=ignore -r /app/requirements.txt --no-cache-dir
 
 COPY ./ /app
 
