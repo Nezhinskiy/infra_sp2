@@ -8,6 +8,8 @@ RUN python -m venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
 
+ENV PIP_ROOT_USER_ACTION=ignore
+
 RUN pip install --upgrade pip
 
 RUN pip install -r /app/requirements.txt --no-cache-dir
