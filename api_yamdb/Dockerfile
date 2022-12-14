@@ -1,17 +1,13 @@
 FROM python:3.7-slim
 
+LABEL author='Nezhinsky'
+
 WORKDIR /app
 
 COPY api_yamdb/requirements.txt /app
 
-RUN python -m venv /opt/venv
+RUN pip3 install -r /app/requirements.txt --no-cache-dir
 
-ENV PATH="/opt/venv/bin:$PATH"
-
-RUN pip3 install --upgrade pip
-
-RUN pip3 install --root-user-action=ignore -r /app/requirements.txt --no-cache-dir
-
-COPY ./api_yamdb/ /app
+COPY ./ /app
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
