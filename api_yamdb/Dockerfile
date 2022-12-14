@@ -4,7 +4,13 @@ RUN mkdir /app
 
 COPY api_yamdb/requirements.txt /app
 
-RUN pip3 install -r /app/requirements.txt --no-cache-dir
+RUN python -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install --upgrade pip
+
+RUN pip install -r /app/requirements.txt --no-cache-dir
 
 COPY api_yamdb /app
  
