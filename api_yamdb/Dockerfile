@@ -4,10 +4,12 @@ LABEL author='Nezhinsky'
 
 WORKDIR /app
 
-COPY requirements.txt /app
+COPY requirements.txt .
 
-RUN pip3 install -r /app/requirements.txt --no-cache-dir
+RUN pip install --upgrade pip
 
-COPY ./ /app
+RUN pip install --root-user-action=ignore -r /app/requirements.txt --no-cache-dir
+
+COPY ./ .
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
