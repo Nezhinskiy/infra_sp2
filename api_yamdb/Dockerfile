@@ -6,9 +6,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 
-RUN pip install --root-user-action=ignore -r /app/requirements.txt --no-cache-dir
+RUN pip3 install --root-user-action=ignore -r /app/requirements.txt --no-cache-dir
 
 COPY ./ .
 
