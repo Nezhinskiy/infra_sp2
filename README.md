@@ -1,17 +1,5 @@
 # API_YAMDB
 
-## Стек технологий:
-- Python 3
-- DRF (Django REST framework)
-- Django ORM
-- Docker
-- Gunicorn
-- nginx
-- Яндекс Облако(Ubuntu 18.04)
-- Django 2.2 TLS
-- PostgreSQL
-- GIT
-
 ### Как запустить проект:
 
 ```bash
